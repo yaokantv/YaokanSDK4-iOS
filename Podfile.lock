@@ -1,0 +1,16 @@
+PODS:
+  - YaokanSDK4 (1.0)
+
+DEPENDENCIES:
+  - YaokanSDK4 (from `./`)
+
+EXTERNAL SOURCES:
+  YaokanSDK4:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  YaokanSDK4: f241ac8cdcb3e2948faede1f7dc705aa2e94b8ba
+
+PODFILE CHECKSUM: 5004e168e175e695bc9d4dae260c50d5cbabc083
+
+COCOAPODS: 1.9.1
