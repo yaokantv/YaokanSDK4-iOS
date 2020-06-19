@@ -61,16 +61,18 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
       注意： iOS 13起获取SSID之前需要定位权限。<br>softAP 配网过程会出现两次切换Wi-Fi的弹框(这是iOS系统弹出的),<br>为确保配网顺利,必须告知用户
       按 "加入" 
       ```objc   
-      [YaokanSDK bindYKCWithSSID:@"2.4G-WIFI-SSID" password:@"wifipassword" deviceType:ConfigDeviceLA completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
+      [YaokanSDK bindYKCV2WithSSID:@"2.4G-WIFI-SSID" password:@"wifipassword" deviceType:ConfigDeviceLA configType:ConfigTypeAP completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
 
-
-      }];
+        }];
       
       /*
       deviceType传参说明：
         接入产品为 遥控大师小苹果  传 枚举常量 ConfigDeviceLA
                  遥控大师大苹果  传 枚举常量 ConfigDeviceBA
                  遥控大师空调伴侣 传 枚举常量 ConfigDeviceAC
+      configType：
+        softAP配网 传枚举常量 ConfigTypeAP
+        SmartConfig配网  传枚举常量 ConfigTypeSmart
       */
       ```
 
