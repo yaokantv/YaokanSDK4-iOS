@@ -2,7 +2,7 @@
 
 
   文件编号：YAOKANSDK4IOS-20200527
-  版本：v1.0
+  版本：v1.0.1
 
   深圳遥看科技有限公司
   （版权所有，切勿拷贝）
@@ -12,6 +12,7 @@
 | 版本 | 说明 | 备注 | 日期 |
 | --- | --- | --- | --- |
 | v1 | 新建 | yaokan | 20200527 |
+| v1.0.1 | 扩展其他产品配网 | yaokan | 20200617 |
 
 
 
@@ -19,11 +20,11 @@
 ## 1. 概述
 YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与App对接的目的。
 
-![image](https://github.com/yaokantv/YaokanSDK3-Android/blob/master/img/net_config.png)
+![image](https://github.com/yaokantv/YaokanSDK3-Android/raw/master/img/net_config.png)
 
-![image](https://github.com/yaokantv/YaokanSDK3-Android/blob/master/img/create_rc.png)
+![image](https://github.com/yaokantv/YaokanSDK3-Android/raw/master/img/create_rc.png)
 
-![image](https://github.com/yaokantv/YaokanSDK3-Android/blob/master/img/create_stb.png)
+![image](https://github.com/yaokantv/YaokanSDK3-Android/raw/master/img/create_stb.png)
 
 
 ## 2. 文档阅读对象
@@ -54,16 +55,23 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
 
 ### 4.2 设备接口    
 
-1. 配置入网
-      在  `[your_project].xcodeproj`, 选择 Target `[your_target_name]` 打开 Capabilities  标签项 打开Acces WiFi Information 和 Hotspot Configuration 
-      iOS 13起获取SSID之前需要定位权限。
-      注意：配网过程会出现两次切换Wi-Fi的弹框(这是iOS系统弹出的),为确保配网顺利,必须告知用户
+1. 配置入网<br>
+      在  `[your_project].xcodeproj`, 选择 Target `[your_target_name]` <br>打开 Capabilities  标签项 打开<br>Acces WiFi Information <br> Hotspot Configuration<br> 
+       
+      注意： iOS 13起获取SSID之前需要定位权限。<br>softAP 配网过程会出现两次切换Wi-Fi的弹框(这是iOS系统弹出的),<br>为确保配网顺利,必须告知用户
       按 "加入" 
       ```objc   
-      [YaokanSDK bindYKCWithSSID:@"2.4G-WIFI-SSID" password:@"wifipassword" completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
+      [YaokanSDK bindYKCWithSSID:@"2.4G-WIFI-SSID" password:@"wifipassword" deviceType:ConfigDeviceLA completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
 
 
       }];
+      
+      /*
+      deviceType传参说明：
+        接入产品为 遥控大师小苹果  传 枚举常量 ConfigDeviceLA
+                 遥控大师大苹果  传 枚举常量 ConfigDeviceBA
+                 遥控大师空调伴侣 传 枚举常量 ConfigDeviceAC
+      */
       ```
 
 1. 获取设备列表
@@ -123,7 +131,11 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
 
 1. 设备复位
 
-    ```objc  
+    ```objc
+    // 复位后进入 SmartConfig
+    [YaokanSDK restoreWithYKCId:@"targetMacAddr"];
+    
+    // 复位后进入SoftAP 
     [YaokanSDK restoreWithYKCId:@"targetMacAddr"];
     
     ```
@@ -135,8 +147,15 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
     [YaokanSDK fetchRemoteDeviceTypeWithYKCId:[[YKCenterCommon sharedInstance] currentYKCId] completion:^(NSArray<YKRemoteDeviceType *> * _Nonnull types, NSError * _Nonnull error) {
 
     }];
+    
+    
+    /* 
+      YKRemoteDeviceType 的tid 说明 参考  
+      <YaokanSDK/YaokanSDKHeader.h> 
+      枚举常量 RemoteDeviceType 
+    */
     ```
-    `be_rc_type` 的值请参考文档`《遥看SDK4技术说明》3.2.4 获取被遥控设备类型列表`。
+
     
 1. 获取设备品牌
 

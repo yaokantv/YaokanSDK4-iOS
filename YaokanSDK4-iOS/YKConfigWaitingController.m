@@ -74,7 +74,7 @@
          */
     
         
-        [YaokanSDK bindYKCV2WithSSID:dataCommon.ssid password:key completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
+        [YaokanSDK bindYKCV2WithSSID:dataCommon.ssid password:key deviceType:_deviceType configType:_configType completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
             if (device && error == nil) {
                 [self onConfigSucceed:nil];
             }else{

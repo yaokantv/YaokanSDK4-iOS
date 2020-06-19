@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <YaokanSDK/YaokanSDK.h>
 
 @interface YKConfigWaitingController : UIViewController
+
+@property (assign, nonatomic) ConfigDeviceType deviceType;
+@property (assign, nonatomic) ConfigType configType;
 
 @end

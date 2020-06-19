@@ -9,6 +9,17 @@
 #import <Foundation/Foundation.h>
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, ConfigDeviceType){
+    ConfigDeviceBA,  //大苹果
+    ConfigDeviceLA,  //小苹果
+    ConfigDeviceAC  //空调伴侣
+};
+
+typedef NS_ENUM(NSInteger, ConfigType){
+    ConfigTypeAP = 0,
+    ConfigTypeSmart
+};
+
 /**
  @brief RCDeviceNetStatus 枚举，描述 SDK 支持的设备网路状态
  */

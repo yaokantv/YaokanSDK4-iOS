@@ -57,10 +57,13 @@ FOUNDATION_EXPORT const unsigned char YaokanSDKVersionString[];
  绑定遥控中心 YKC，完成后使用 block 回调返回结果。配网过程中切出现Wi-Fi 请引导用户按确定，否则会导致配网
  @param ssid Wi-Fi 的 SSID 名称
  @param password Wi-Fi 的密码
+ @param deviceType 要入网的设备产品
  @param completion 绑定遥控中心设备完成的回调。如果绑定出错，返回 error 对象；如果有连接成功，error 为空，返回新入网的设备device 对象。
  */
 + (void)bindYKCV2WithSSID:(NSString *)ssid
                  password:(nullable NSString *)password
+               deviceType:(ConfigDeviceType)deviceType
+               configType:(ConfigType)configType
                completion:(void (^__nullable)(NSError * _Nullable error, YKDevice * _Nullable  device))completion;
 
 /**
@@ -443,13 +446,19 @@ FOUNDATION_EXPORT const unsigned char YaokanSDKVersionString[];
 
 
 /**
- 硬件复位
+ 硬件复位(复位 后是 SmartConfig)
  
  @param ykcId 硬件mac地址
  */
 + (void)restoreWithYKCId:(NSString *)ykcId;
 
 
+/**
+硬件复位(复位后 处于 SoftAP配网模式)
+
+@param ykcId 硬件mac地址
+*/
++ (void)restoreToApWithYKCId:(NSString *)ykcId;
 
 
 /**

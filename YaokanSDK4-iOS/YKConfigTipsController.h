@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <YaokanSDK/YaokanSDK.h>
 @interface YKConfigTipsController : UIViewController
+
+@property (assign, nonatomic) ConfigDeviceType deviceType;
+@property (assign, nonatomic) ConfigType configType;
 
 @end

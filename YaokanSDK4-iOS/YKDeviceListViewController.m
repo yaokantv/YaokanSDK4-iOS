@@ -234,7 +234,14 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         YKDevice *dev = self.deviceListArray[indexPath.row];
         __weak __typeof(self)weakSelf = self;
-        [YaokanSDK restoreWithYKCId:dev.macAddress];
+        
+        //复位后进入 SoftAp 配网
+        [YaokanSDK restoreToApWithYKCId:dev.macAddress];
+        
+        
+        //复位后进入SmartConfig
+//        [YaokanSDK restoreWithYKCId:dev.macAddress];
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
              [weakSelf refreshBtnPressed:nil];
         });

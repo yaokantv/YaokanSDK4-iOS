@@ -8,11 +8,14 @@
 
 #import "YKConfigTipsController.h"
 #import "UIImageView+PlayGIF.h"
+#import "YKConfigWaitingController.h"
 
 @interface YKConfigTipsController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
 @property (weak, nonatomic) IBOutlet UIImageView *imgAirlink;
+
+@property (weak, nonatomic) IBOutlet UILabel *lb;
 
 @end
 
@@ -22,12 +25,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    self.imgAirlink.gifPath = [[NSBundle mainBundle] pathForResource:@"02-airlink" ofType:@"gif"];
+    self.imgAirlink.gifPath = [[NSBundle mainBundle] pathForResource:@"AP" ofType:@"gif"];
+    if (ConfigTypeSmart == _configType) {
+        self.imgAirlink.gifPath = [[NSBundle mainBundle] pathForResource:@"02-airlink" ofType:@"gif"];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.imgAirlink startGIF];
+    
+    if (ConfigTypeSmart == _configType) {
+       _lb.text = @"确保设备通电 并处于快闪状态";
+        
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -55,6 +66,14 @@
 
 - (IBAction)next:(id)sender {
     [self performSegueWithIdentifier:@"showConfigSearch" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:[YKConfigWaitingController class]]) {
+        YKConfigWaitingController *vc = segue.destinationViewController;
+        vc.deviceType = _deviceType;
+        vc.configType = _configType;
+    }
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "YKPasswordCell.h"
 #import "YKCenterCommon.h"
 #import <CoreLocation/CoreLocation.h>
+#import "YKConfigTipsController.h"
 
 @interface YKConfigStartController () <UITableViewDataSource, UITableViewDelegate,
 UITextFieldDelegate, UIAlertViewDelegate, CLLocationManagerDelegate>
@@ -24,6 +25,10 @@ UITextFieldDelegate, UIAlertViewDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 @property (nonatomic) CLLocationManager *locationManager;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlConfig;
 
 @end
 
@@ -244,6 +249,14 @@ UITextFieldDelegate, UIAlertViewDelegate, CLLocationManagerDelegate>
 
 - (IBAction)back:(id)sender  {
      [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:[YKConfigTipsController class]]) {
+        YKConfigTipsController *vc = segue.destinationViewController;
+        vc.deviceType = (ConfigDeviceType)_segmentedControl.selectedSegmentIndex;
+        vc.configType = (ConfigType)_segmentedControlConfig.selectedSegmentIndex;
+    }
 }
 
 @end
