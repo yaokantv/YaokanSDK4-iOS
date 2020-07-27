@@ -542,6 +542,25 @@ FOUNDATION_EXPORT const unsigned char YaokanSDKVersionString[];
 + (void)updateAudioControlWithRemoteDevice:(YKRemoteDevice *)remoteDevice
                                 completion:(void (^__nullable)(BOOL result))completion;
 
+
+
+/// 获取房间名出列表
+/// @param completion 回调（result 为NSString 类型的数组）
++ (void)placeListCompletion:(void (^__nullable)(NSArray *result,NSError *e))completion;
+
+
+/// 获取设备别名列表
+/// @param tid 遥控器tid
+/// @param completion 回调（result 为字典类型的数组）
++ (void)aliasList:(NSInteger)tid completion:(void (^__nullable)(NSArray *result,NSError *e))completion;
+
+
+/// 更新语音遥控器别名(仅限于带语音功能设备)
+/// @param remoteDevice 已创建好的遥控器
+/// @param completion 回调
++(void)updateAudioControlAlias:(YKRemoteDevice *)remoteDevice completion:(void (^__nullable)(BOOL flag,NSError *e))completion;
+
+
 /**
  导出遥控小苹果列表
 

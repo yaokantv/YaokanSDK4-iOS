@@ -22,19 +22,30 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *desc;
 @property (nullable, nonatomic, copy) NSString *localId;
 @property (nullable, nonatomic, copy) NSString *modelName;
+
+/// 遥控器名称
 @property (nullable, nonatomic, copy) NSString *name;
+
+
+/// 遥控器rid
 @property (nullable, nonatomic, copy) NSString *remoteId;
 @property (nullable, nonatomic, copy) NSString *rf_body;
+
+/// 遥控器显示名称(roomName+name)
 @property (nullable, nonatomic, copy) NSString *showName;
 @property (nullable, nonatomic, copy) NSString *rc_command;
 @property (nullable, nonatomic, copy) NSString *study_Id;
 @property (nonatomic) int64_t typeId;
 @property (nullable, nonatomic, copy) NSDate *updateTime;
 @property (nonatomic) int16_t version;
+
+/// 遥控器绑定的设备(小苹果的mac地址)
 @property (nullable, nonatomic, copy) NSString *ykcId;
 @property (nonatomic) int16_t zip;
 @property (nullable, nonatomic, retain) NSOrderedSet<YKRemoteDeviceKey *> *keys;
 
+/// 房间名
+@property (nullable, nonatomic, copy) NSString *roomName;
 @end
 
 @interface YKRemoteDevice (CoreDataGeneratedAccessors)

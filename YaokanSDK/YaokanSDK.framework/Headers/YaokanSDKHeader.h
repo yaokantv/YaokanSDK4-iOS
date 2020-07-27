@@ -58,6 +58,7 @@ typedef NS_ENUM(NSInteger, RemoteDeviceType){
     kDeviceWaterHeater = 40,        // 热水器
     kDeviceRFAirCooler = 41,        // 凉霸
     kDeviceRFFan = 42,              // 射频风扇
+    kDeviceACMini = 44,              // 其他空调
 };
 
 #endif /* YaokanSDKHeader_h */
