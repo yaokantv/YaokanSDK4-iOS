@@ -38,6 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)exportRemotesWithYkcId:(NSString *)ykcId;
 
 
+/// 导入遥控器
+/// @param jsonStr 单个或多个 遥控器json字符串
+/// @param ykcId 硬件的mac地址
 + (BOOL)importRemotes:(NSString *)jsonStr toYkcId:(NSString *)ykcId;
 
 /**

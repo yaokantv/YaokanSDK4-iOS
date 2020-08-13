@@ -525,7 +525,7 @@ FOUNDATION_EXPORT const unsigned char YaokanSDKVersionString[];
 
 /// 查询设备信息
 /// @param ykcId 设备Mac地址
-/// @param completion 回调
+/// @param completion 回调(字典类型)
 + (void)deviceInfo:(NSString *)ykcId completion:(void (^__nullable)(BOOL flag,NSDictionary *info))completion;
 
 
@@ -560,6 +560,33 @@ FOUNDATION_EXPORT const unsigned char YaokanSDKVersionString[];
 /// @param completion 回调
 +(void)updateAudioControlAlias:(YKRemoteDevice *)remoteDevice completion:(void (^__nullable)(BOOL flag,NSError *e))completion;
 
+
+/**
+射频对码列表(需要綁定电器自身的mac地址)
+
+@param ykcId 遥控中心 id
+@param typeId 遥控码的设备类型 id
+@param deviceId 电器自身的Mac地址
+@param brand 品牌(YKRemoteDeviceBrand)
+@param completion 返回遥控码的匹配设备列表
+*/
++ (void)fetchRFRemoteDeviceWithYKCId:(NSString *)ykcId
+                  remoteDeviceTypeId:(NSUInteger)typeId
+                              subMac:(NSString *)deviceId
+                   remoteDeviceBrand:(YKRemoteDeviceBrand *)brand
+                          completion:(void (^)(YKRemoteMatchDevice *, NSArray<YKRemoteMatchDeviceKey *> *,NSError *))completion;
+
+
+/// 绑定美亚设备
+/// @param mac 遥控中心 mac地址
+/// @param suffix 内部分类头
+/// @param completion 回调
++(void)mpeBind:(NSString *)mac catSuffix:(NSString *)suffix completion:(void (^__nullable)(BOOL flag,NSString * __nullable mac,NSString * __nullable subMac))completion;
+
+/// 查询美亚设备上报
+/// @param remoteDevice 已创建的遥控器
+/// @param completion 回调
++(void)mpeStatus:(YKRemoteDevice *)remoteDevice handler:(void (^__nullable)(BOOL flag,NSString * __nullable mac,NSString * __nullable subMac,NSDictionary * __nullable mpeInfo))completion;
 
 /**
  导出遥控小苹果列表

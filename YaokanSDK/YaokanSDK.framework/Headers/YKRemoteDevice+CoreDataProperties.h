@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int64_t codeset;
 @property (nullable, nonatomic, copy) NSString *controllerModel;
 @property (nullable, nonatomic, copy) NSString *desc;
+@property (nullable, nonatomic, copy) NSString *device_id;
 @property (nullable, nonatomic, copy) NSString *localId;
 @property (nullable, nonatomic, copy) NSString *modelName;
 

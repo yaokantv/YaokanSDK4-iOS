@@ -26,6 +26,10 @@ extern NSInteger const  YKSDK_DEVICE_REG_TIMEOUT;
 
 extern NSInteger const  YKSDK_DEVICE_CONFIG_ERROR;
 
+extern NSInteger const  YKSDK_BRAND_MPE_BED;
+
+extern NSInteger const  YKSDK_BRAND_MPE_CHAIR;
+
 typedef NS_ENUM(NSInteger, RemoteDeviceType){
     kDeviceTypeUnkown = -1,
     kDeviceTypeCustom = 0,          // 自定义
@@ -58,7 +62,9 @@ typedef NS_ENUM(NSInteger, RemoteDeviceType){
     kDeviceWaterHeater = 40,        // 热水器
     kDeviceRFAirCooler = 41,        // 凉霸
     kDeviceRFFan = 42,              // 射频风扇
-    kDeviceACMini = 44,              // 其他空调
+    kDeviceACMini = 44,             // 其他空调
+    kDeviceRFBed = 45,              // 床
+    kDeviceRFChair = 46,            // 椅
 };
 
 #endif /* YaokanSDKHeader_h */
