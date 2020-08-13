@@ -1,8 +1,8 @@
 # Yaokan SDK4 iOS 说明文档
 
 
-  文件编号：YAOKANSDK4IOS-20200527
-  版本：v1.0.1
+  文件编号：YAOKANSDK4IOS-20200813
+  版本：v1.0.3
 
   深圳遥看科技有限公司
   （版权所有，切勿拷贝）
@@ -13,7 +13,7 @@
 | --- | --- | --- | --- |
 | v1 | 新建 | yaokan | 20200527 |
 | v1.0.1 | 扩展其他产品配网 | yaokan | 20200617 |
-
+| v1.0.3 | 支持美亚床椅 | yaokan | 20200813 |
 
 
 
@@ -94,7 +94,14 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
     ```objc
     [YaokanSDK toogleLEDWithYKCId:@"targetMacAddr"];
     ```
+1. 获取设备信息
 
+    ```objc
+    [YaokanSDK deviceInfo:@"INPUTYOURMAC" completion:^(BOOL flag, NSDictionary * _Nonnull info) {
+        
+    }];
+
+    ```
 1. 停止学习(已创建的遥控器 传 YKRemoteDevice 类型)
 
     ```objc
