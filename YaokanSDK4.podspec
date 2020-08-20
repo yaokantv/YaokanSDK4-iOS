@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "YaokanSDK4"
-  spec.version      = "1.0.2"
+  spec.version      = "1.0.4"
   spec.summary      = "YaokanSDK4 makes your app control your home."
 
   # This description is used to generate tags and improve search results.
