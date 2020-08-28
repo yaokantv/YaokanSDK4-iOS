@@ -17,7 +17,8 @@ typedef NS_ENUM(NSInteger, ConfigDeviceType){
 
 typedef NS_ENUM(NSInteger, ConfigType){
     ConfigTypeAP = 0,
-    ConfigTypeSmart
+    ConfigTypeSmart,
+    ConfigTypeMobileAP
 };
 
 /**

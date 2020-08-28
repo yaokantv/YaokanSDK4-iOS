@@ -25,9 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    self.imgAirlink.gifPath = [[NSBundle mainBundle] pathForResource:@"AP" ofType:@"gif"];
-    if (ConfigTypeSmart == _configType) {
-        self.imgAirlink.gifPath = [[NSBundle mainBundle] pathForResource:@"02-airlink" ofType:@"gif"];
+    self.imgAirlink.gifPath = [[NSBundle mainBundle] pathForResource:@"02-airlink" ofType:@"gif"];
+    if (ConfigTypeAP == _configType) {
+        self.imgAirlink.gifPath = [[NSBundle mainBundle] pathForResource:@"AP" ofType:@"gif"];
     }
 }
 
@@ -37,6 +37,9 @@
     
     if (ConfigTypeSmart == _configType) {
        _lb.text = @"确保设备通电 并处于快闪状态";
+        
+    }else if (ConfigTypeMobileAP == _configType) {
+       _lb.text = @"1.确保设备通电 并处于快闪状态 \n  2.确保 此手机已开启个人热点 \n *如果手机热点不是本台手机 将配网失败";
         
     }
 }

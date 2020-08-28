@@ -231,6 +231,12 @@ UITextFieldDelegate, UIAlertViewDelegate, CLLocationManagerDelegate>
 }
 
 - (IBAction)onNext:(id)sender {
+    //以手机热点配网 
+    if (self.segmentedControlConfig.selectedSegmentIndex == ConfigTypeMobileAP) {
+        [self performSegueWithIdentifier:@"showConfig2" sender:nil];
+        return;
+    }
+    
     if (0 == self.passwordCell.textPassword.text.length) {
         // password is empty
     } else {

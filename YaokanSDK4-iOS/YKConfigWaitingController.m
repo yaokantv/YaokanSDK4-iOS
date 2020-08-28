@@ -50,7 +50,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     YKCenterCommon *dataCommon = [YKCenterCommon sharedInstance];
     
-    if (YKGetCurrentSSID().length > 0) {
+    if (YKGetCurrentSSID().length >= 0) {
         NSString *key = [dataCommon getPasswrodFromSSID:dataCommon.ssid];
         /*
         [YKCenterSDK bindYKCWithSSID:dataCommon.ssid
@@ -74,7 +74,7 @@
          */
     
         
-        [YaokanSDK bindYKCV2WithSSID:dataCommon.ssid password:key deviceType:_deviceType configType:_configType completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
+        [YaokanSDK bindYKCV2WithSSID:nil password:nil deviceType:_deviceType configType:_configType completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
             if (device && error == nil) {
                 [self onConfigSucceed:nil];
             }else{
@@ -207,6 +207,7 @@ static inline void SHOW_ALERT_CANCEL_CONFIG(id delegate) {
 }
 
 - (void)cancel {
+    [[YaokanSDK sharedInstance] stopBind];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 

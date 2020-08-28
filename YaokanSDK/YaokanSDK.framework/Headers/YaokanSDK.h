@@ -66,6 +66,10 @@ FOUNDATION_EXPORT const unsigned char YaokanSDKVersionString[];
                configType:(ConfigType)configType
                completion:(void (^__nullable)(NSError * _Nullable error, YKDevice * _Nullable  device))completion;
 
+
+/// 停止入网(如果配网成功或60秒内没配网的 均会自动停止。 若有 bindYKCV2WithSSID 回调前人为终止配网的需求，可用此方法)
+- (void)stopBind;
+
 /**
  获取设备列表
 

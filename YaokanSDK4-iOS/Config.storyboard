@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -45,12 +45,15 @@
                                     <action selector="onNext:" destination="3Hh-lo-0O0" eventType="touchUpInside" id="cw5-KH-wIs"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂不支持5G 制式Wi-Fi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnU-Be-P4c">
-                                <rect key="frame" x="37.5" y="638" width="300" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnU-Be-P4c">
+                                <rect key="frame" x="37.5" y="596" width="300" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="gmi-fc-nbT"/>
-                                    <constraint firstAttribute="height" constant="21" id="qL3-pB-FDc"/>
+                                    <constraint firstAttribute="height" constant="63" id="qL3-pB-FDc"/>
                                 </constraints>
+                                <string key="text">暂不支持5G 制式Wi-Fi
+*手机热点配网无需Wi-Fi信息
+直接下一步</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.39607843139999999" green="0.3921568627" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -85,23 +88,24 @@
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-bI-tnP">
-                                <rect key="frame" x="56" y="110" width="263" height="32"/>
+                                <rect key="frame" x="20" y="110" width="335" height="32"/>
                                 <segments>
                                     <segment title="SoftAP"/>
                                     <segment title="SmartConfig"/>
+                                    <segment title="手机热点配网"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="kd0-bI-tnP" secondAttribute="trailing" constant="56" id="64D-sW-T2i"/>
+                            <constraint firstAttribute="trailing" secondItem="kd0-bI-tnP" secondAttribute="trailing" constant="20" id="64D-sW-T2i"/>
                             <constraint firstItem="stF-wu-eTK" firstAttribute="leading" secondItem="oKz-eV-veT" secondAttribute="leadingMargin" id="6Mc-Us-ijR"/>
                             <constraint firstItem="TwF-si-KdP" firstAttribute="centerX" secondItem="oKz-eV-veT" secondAttribute="centerX" id="7CT-J2-fL1"/>
                             <constraint firstItem="Im8-bF-ah1" firstAttribute="top" secondItem="dnU-Be-P4c" secondAttribute="bottom" constant="8" id="KRd-eg-5ho"/>
                             <constraint firstItem="933-qM-1dR" firstAttribute="leading" secondItem="oKz-eV-veT" secondAttribute="leading" constant="56" id="OEI-dd-nTt"/>
                             <constraint firstItem="bc8-ND-yDl" firstAttribute="top" secondItem="K2N-ul-p2b" secondAttribute="bottom" constant="35" id="TEy-ln-BKs"/>
-                            <constraint firstItem="kd0-bI-tnP" firstAttribute="leading" secondItem="oKz-eV-veT" secondAttribute="leading" constant="56" id="XA7-gK-XdH"/>
+                            <constraint firstItem="kd0-bI-tnP" firstAttribute="leading" secondItem="oKz-eV-veT" secondAttribute="leading" constant="20" id="XA7-gK-XdH"/>
                             <constraint firstItem="933-qM-1dR" firstAttribute="top" secondItem="xBd-LW-ZiF" secondAttribute="bottom" constant="15" id="bir-SL-EnS"/>
                             <constraint firstItem="bc8-ND-yDl" firstAttribute="centerX" secondItem="oKz-eV-veT" secondAttribute="centerX" id="bwj-M7-QjI"/>
                             <constraint firstItem="K2N-ul-p2b" firstAttribute="leading" secondItem="oKz-eV-veT" secondAttribute="leadingMargin" constant="-20" id="duX-rh-rmp"/>
@@ -155,7 +159,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KQ-Un-Yuz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KQ-Un-Yuz">
                                 <rect key="frame" x="-4" y="292" width="383" height="33.5"/>
                                 <string key="text">确保设备通电 并处于2闪1停
 配网过程会有两次提示切换Wi-Fi 请按 "加入"</string>
