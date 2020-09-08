@@ -237,6 +237,11 @@ UITextFieldDelegate, UIAlertViewDelegate, CLLocationManagerDelegate>
         return;
     }
     
+    if (self.segmentedControlConfig.selectedSegmentIndex == ConfigTypeParam) {
+        [self performSegueWithIdentifier:@"showConfig2" sender:nil];
+        return;
+    }
+    
     if (0 == self.passwordCell.textPassword.text.length) {
         // password is empty
     } else {

@@ -1,8 +1,8 @@
 # Yaokan SDK4 iOS 说明文档
 
 
-  文件编号：YAOKANSDK4IOS-20200828
-  版本：v1.0.4
+  文件编号：YAOKANSDK4IOS-20200903
+  版本：v1.0.5
 
   深圳遥看科技有限公司
   （版权所有，切勿拷贝）
@@ -15,6 +15,7 @@
 | v1.0.1 | 扩展其他产品配网 | yaokan | 20200617 |
 | v1.0.3 | 支持美亚床椅 | yaokan | 20200813 |
 | v1.0.4 | 增加手机热点配网 | yaokan | 20200828 |
+| v1.0.5 | 增加参数配网 | yaokan | 20200903 |
 
 
 ## 1. 概述
@@ -75,16 +76,19 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
         SmartConfig配网  传枚举常量 ConfigTypeSmart
         
         
-        手机热点配网  传枚举常量 ConfigTypeMobileAP
-        此时 SSID和password 可以不传或传空字符串
+        *手机热点配网  传枚举常量 ConfigTypeMobileAP
+            此时 SSID和password 可以不传或传空字符串
+            
+            如果手机开启热点后一段时间没设备连接上的，iPhone 会自动关闭热点Wi-Fi。重新进入 "设置-个人热点"，将再次开启。
+            配网程序和手机热点必须是同一台手机，不支持跨手机。
         
-        如果手机开启热点后一段时间没设备连接上的，iPhone 会自动关闭热点Wi-Fi。重新进入 "设置-个人热点"，将再次开启。
+            *手机热点配网功能仅 仅限个别产品，更多详情与本公司联系。
+            您的手机能否开启 个人热点 功能取决于您使用的运营商，
+            如没有 或是开启后没无法上网的请与您使用的运营商联系。
         
-        您的手机能否开启 个人热点 功能取决于您使用的运营商，
-        如没有 或是开启后没无法上网的请与您使用的运营商联系。
-        
-        *手机热点配网功能仅 仅限个别产品，更多对接详请与本公司联系。
-        
+       参数配网  传枚举常量 ConfigTypeMobileParam 
+            此时 SSID和password 可以不传或传空字符串
+            如需对接此功能请与本公司联系。
       */
       ```
 
@@ -412,3 +416,5 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
 | 1002 | YKSDK_SMARTCONFIG_TIMEOUT  | 设备配置超时 |
 | 1003 | YKSDK_CONFIG_TIMEOUT  | 配网超时 |
 | 1004 | YKSDK_DEVICE_REG_TIMEOUT  | 注册设备超时 |
+| 1005 | YKSDK_DEVICE_CONFIG_MOBILEAP_NOT_FOUND_ERROR  | 热点配网失败，手机热点未开启 |
+| 1006 | YKSDK_DEVICE_GET_PARAM_ERROR  | 参数配网失败 |

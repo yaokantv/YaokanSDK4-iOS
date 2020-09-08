@@ -52,7 +52,7 @@
                                     <constraint firstAttribute="height" constant="63" id="qL3-pB-FDc"/>
                                 </constraints>
                                 <string key="text">暂不支持5G 制式Wi-Fi
-*手机热点配网无需Wi-Fi信息
+*手机热点配网和参数配网无需Wi-Fi信息
 直接下一步</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.39607843139999999" green="0.3921568627" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -88,24 +88,25 @@
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-bI-tnP">
-                                <rect key="frame" x="20" y="110" width="335" height="32"/>
+                                <rect key="frame" x="5" y="110" width="365" height="32"/>
                                 <segments>
                                     <segment title="SoftAP"/>
                                     <segment title="SmartConfig"/>
                                     <segment title="手机热点配网"/>
+                                    <segment title="参数配网"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="kd0-bI-tnP" secondAttribute="trailing" constant="20" id="64D-sW-T2i"/>
+                            <constraint firstAttribute="trailing" secondItem="kd0-bI-tnP" secondAttribute="trailing" constant="5" id="64D-sW-T2i"/>
                             <constraint firstItem="stF-wu-eTK" firstAttribute="leading" secondItem="oKz-eV-veT" secondAttribute="leadingMargin" id="6Mc-Us-ijR"/>
                             <constraint firstItem="TwF-si-KdP" firstAttribute="centerX" secondItem="oKz-eV-veT" secondAttribute="centerX" id="7CT-J2-fL1"/>
                             <constraint firstItem="Im8-bF-ah1" firstAttribute="top" secondItem="dnU-Be-P4c" secondAttribute="bottom" constant="8" id="KRd-eg-5ho"/>
                             <constraint firstItem="933-qM-1dR" firstAttribute="leading" secondItem="oKz-eV-veT" secondAttribute="leading" constant="56" id="OEI-dd-nTt"/>
                             <constraint firstItem="bc8-ND-yDl" firstAttribute="top" secondItem="K2N-ul-p2b" secondAttribute="bottom" constant="35" id="TEy-ln-BKs"/>
-                            <constraint firstItem="kd0-bI-tnP" firstAttribute="leading" secondItem="oKz-eV-veT" secondAttribute="leading" constant="20" id="XA7-gK-XdH"/>
+                            <constraint firstItem="kd0-bI-tnP" firstAttribute="leading" secondItem="oKz-eV-veT" secondAttribute="leading" constant="5" id="XA7-gK-XdH"/>
                             <constraint firstItem="933-qM-1dR" firstAttribute="top" secondItem="xBd-LW-ZiF" secondAttribute="bottom" constant="15" id="bir-SL-EnS"/>
                             <constraint firstItem="bc8-ND-yDl" firstAttribute="centerX" secondItem="oKz-eV-veT" secondAttribute="centerX" id="bwj-M7-QjI"/>
                             <constraint firstItem="K2N-ul-p2b" firstAttribute="leading" secondItem="oKz-eV-veT" secondAttribute="leadingMargin" constant="-20" id="duX-rh-rmp"/>

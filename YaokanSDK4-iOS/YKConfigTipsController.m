@@ -41,6 +41,9 @@
     }else if (ConfigTypeMobileAP == _configType) {
        _lb.text = @"1.确保设备通电 并处于快闪状态 \n  2.确保 此手机已开启个人热点 \n *如果手机热点不是本台手机 将配网失败";
         
+    }else if (ConfigTypeParam == _configType) {
+       _lb.text = @"1.确保设备通电 并处于快闪状态 \n  2.确保 此手机已开启个人热点 \n *如果手机热点不是本台手机 将配网失败";
+        
     }
 }
 

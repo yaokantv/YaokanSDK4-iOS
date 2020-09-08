@@ -28,6 +28,8 @@ extern NSInteger const  YKSDK_DEVICE_CONFIG_ERROR;
 
 extern NSInteger const  YKSDK_DEVICE_CONFIG_MOBILEAP_NOT_FOUND_ERROR;
 
+extern NSInteger const  YKSDK_DEVICE_GET_PARAM_ERROR;
+
 extern NSInteger const  YKSDK_BRAND_MPE_BED;
 
 extern NSInteger const  YKSDK_BRAND_MPE_CHAIR;

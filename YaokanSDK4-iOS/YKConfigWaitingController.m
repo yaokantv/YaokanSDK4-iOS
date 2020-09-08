@@ -50,29 +50,24 @@
 - (void)viewDidAppear:(BOOL)animated {
     YKCenterCommon *dataCommon = [YKCenterCommon sharedInstance];
     
+    if (ConfigTypeParam == _configType) {
+        [YaokanSDK bindYKWithParameterHander:^(NSString * _Nullable registInfo, NSError * _Nullable ret) {
+            //获取注册data 
+            NSLog(@"%@",registInfo);
+            
+        } completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
+            if (device  && error == nil) {
+                [self onConfigSucceed:nil];
+            }else{
+                [self showAlert:error.userInfo.description];
+            }
+        }];
+        return;
+    }
+    
     if (YKGetCurrentSSID().length >= 0) {
         NSString *key = [dataCommon getPasswrodFromSSID:dataCommon.ssid];
-        /*
-        [YKCenterSDK bindYKCWithSSID:dataCommon.ssid
-                            password:key
-                          completion:^(NSError * _Nonnull result)
-         {
-             NSString *info = [NSString stringWithFormat:@"%@, %@", @(result.code), [result.userInfo objectForKey:@"NSLocalizedDescription"]];
-             if (result.code == GIZ_SDK_SUCCESS) {
-                 [self onConfigSucceed:nil];
-             }
-             else if (result.code == GIZ_SDK_DEVICE_CONFIG_IS_RUNNING) {
-                 NSLog(@"result is :%@, current ssid is %@, elapsed: %li(s)",
-                       info.description,
-                       YKGetCurrentSSID(),
-                       CONFIG_TIMEOUT-self.timeout);
-             }
-             else {
-                 [self onConfigFailed];
-             }
-         }];
-         */
-    
+
         
         [YaokanSDK bindYKCV2WithSSID:nil password:nil deviceType:_deviceType configType:_configType completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
             if (device && error == nil) {
@@ -82,11 +77,7 @@
             }
         }];
         
-//        [YaokanSDK  bindYKCWithSSID:dataCommon.ssid password:key completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
-//            if (device && error == nil) {
-//                [self onConfigSucceed:nil];
-//            }
-//        }];
+
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
     } else {

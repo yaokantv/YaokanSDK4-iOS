@@ -1,5 +1,5 @@
 PODS:
-  - YaokanSDK4 (1.0.4)
+  - YaokanSDK4 (1.0.5)
 
 DEPENDENCIES:
   - YaokanSDK4 (from `./`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  YaokanSDK4: 701ebbf7416102ff169992c3a094ba56fdc71e08
+  YaokanSDK4: 0a7e50b83a0922e58e80995c552542c98b4bb89c
 
 PODFILE CHECKSUM: 181fac819cd48fdc8b0dd682bf758ae37a51e68f
 
