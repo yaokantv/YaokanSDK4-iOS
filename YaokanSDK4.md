@@ -406,6 +406,22 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
     [YKRemoteDevice exportRemotesWithYkcId:[[YKCenterCommon sharedInstance] currentYKCId]];
     ```
 
+1.电量统计
+
+    ```objc
+     @param ykcId       遥控中心 id
+     @param unit      查询单位，取值范围：day,month
+     @param timeBegin      起始时间戳，单位秒
+     @param timeEnd      结束时间戳，单位秒
+     @param completion  返回遥控码的设备品牌列表
+     */
+    + (void)fetchPowerQueryWithYKCId:(NSString *)ykcId
+                         unit:(NSString *)unit
+                           timeBegin:(NSString *)timeBegin
+                           timeEnd:(NSString *)timeEnd
+                          completion:(void (^__nullable)(NSArray<YKAirPower *> *brands, NSError *error))completion;
+    ```
+    
 ### 4.3    SDK错误码表
 主要列出了调用SDK的时候，SDK回调返回的错误码信息
 
