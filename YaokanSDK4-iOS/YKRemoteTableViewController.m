@@ -188,6 +188,7 @@
                    NSLocalizedString(@"Firmware Update", nil),
                    NSLocalizedString(@"Device Info", nil),
                    NSLocalizedString(@"Local Remote  List", nil),
+                   NSLocalizedString(@"Power Query", nil),
                    nil];
     
     actionSheet.actionSheetStyle = UIBarStyleBlackTranslucent;
@@ -246,6 +247,15 @@
         [YaokanSDK remoteListInDevice:[[YKCenterCommon sharedInstance] currentYKCId] completion:^(BOOL flag, NSArray * _Nonnull list) {
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Local Remote  List", nil) message:list.description delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
             [av show];
+        }];
+    }else if (buttonIndex == offset+5) {
+        //只有空调伴侣才有电量统计的功能
+        [YaokanSDK fetchPowerQueryWithYKCId:[[YKCenterCommon sharedInstance] currentYKCId] unit:@"day" timeBegin:@"160914070" timeEnd:@"1609227107" completion:^(NSArray<YKAirPower *> * _Nonnull brands, NSError * _Nonnull error) {
+            for (YKAirPower *bean in brands) {
+                NSLog(@"%@",bean.tag);
+                NSLog(@"%@",bean.value);
+                NSLog(@"%@",bean.createdAt);
+            }
         }];
     }
 }

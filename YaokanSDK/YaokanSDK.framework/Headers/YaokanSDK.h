@@ -11,6 +11,7 @@
 #import "YKDevice.h"
 #import "YKSetboxCarrier.h"
 #import "YKArea.h"
+#import "YKAirPower.h"
 #import "YKRemoteDeviceType.h"
 #import "YKRemoteDeviceBrand.h"
 
@@ -617,7 +618,20 @@ FOUNDATION_EXPORT const unsigned char YaokanSDKVersionString[];
  */
 + (NSString *)sdkVersion;
 
+/**
+ 获取电量统计
 
+ @param ykcId       遥控中心 id
+ @param unit      查询单位，取值范围：day,month
+ @param timeBegin      起始时间戳，单位秒
+ @param timeEnd   结束时间戳，单位秒
+ @param completion 回调
+ */
++ (void)fetchPowerQueryWithYKCId:(NSString *)ykcId
+                     unit:(NSString *)unit
+                       timeBegin:(NSString *)timeBegin
+                       timeEnd:(NSString *)timeEnd
+                      completion:(void (^__nullable)(NSArray<YKAirPower *> *brands, NSError *error))completion;
 @end
 
 NS_ASSUME_NONNULL_END
