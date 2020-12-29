@@ -251,6 +251,8 @@
     }else if (buttonIndex == offset+5) {
         //只有空调伴侣才有电量统计的功能
         [YaokanSDK fetchPowerQueryWithYKCId:[[YKCenterCommon sharedInstance] currentYKCId] unit:@"day" timeBegin:@"160914070" timeEnd:@"1609227107" completion:^(NSArray<YKAirPower *> * _Nonnull brands, NSError * _Nonnull error) {
+            //返回的Model说明 tag:第几天或月；value：电量统计值，保留4位小数；createAt：电量上报的时间戳，用于tag显示的排序
+
             for (YKAirPower *bean in brands) {
                 NSLog(@"%@",bean.tag);
                 NSLog(@"%@",bean.value);
