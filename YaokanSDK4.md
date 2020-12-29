@@ -406,7 +406,7 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
     [YKRemoteDevice exportRemotesWithYkcId:[[YKCenterCommon sharedInstance] currentYKCId]];
     ```
 
-1.电量统计
+1. 电量统计
 
     ```objc
      @param ykcId       遥控中心 id
