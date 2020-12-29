@@ -409,12 +409,6 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
 1. 电量统计
 
     ```objc
-     @param ykcId       遥控中心 id
-     @param unit      查询单位，取值范围：day,month
-     @param timeBegin      起始时间戳，单位秒
-     @param timeEnd      结束时间戳，单位秒
-     @param completion  返回遥控码的设备品牌列表
-     */
     + (void)fetchPowerQueryWithYKCId:(NSString *)ykcId
                          unit:(NSString *)unit
                            timeBegin:(NSString *)timeBegin
