@@ -139,7 +139,7 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
     [YaokanSDK turnOffLEDWithYKCId:@"targetMacAddr"];
     ```
 
-1. 设备开灯、关灯
+1. 设备设置音量
 
     ```objc
     //voice取值0-20, Mac为设备mac
