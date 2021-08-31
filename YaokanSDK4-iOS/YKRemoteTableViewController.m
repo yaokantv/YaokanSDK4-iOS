@@ -189,6 +189,7 @@
                    NSLocalizedString(@"Device Info", nil),
                    NSLocalizedString(@"Local Remote  List", nil),
                    NSLocalizedString(@"Power Query", nil),
+                   NSLocalizedString(@"set voice", nil),
                    nil];
     
     actionSheet.actionSheetStyle = UIBarStyleBlackTranslucent;
@@ -259,6 +260,8 @@
                 NSLog(@"%@",bean.createdAt);
             }
         }];
+    }else if (buttonIndex == offset+6) {
+        [YaokanSDK setVoice:8 WithYKCId:[[YKCenterCommon sharedInstance] currentYKCId]];
     }
 }
 

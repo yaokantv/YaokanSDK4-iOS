@@ -442,6 +442,16 @@ FOUNDATION_EXPORT const unsigned char YaokanSDKVersionString[];
 + (void)toogleLEDWithYKCId:(NSString *)ykcId;
 
 /**
+ 设置硬件播报音量
+ 
+ @param ykcId 硬件mac地址
+ @param voice 要设置的音量,取值0-20
+ */
++ (void)setVoice:(NSUInteger)voice
+       WithYKCId:(NSString *)ykcId;
+
+
+/**
 打开硬件LED灯开关
  
  @param ykcId 硬件mac地址

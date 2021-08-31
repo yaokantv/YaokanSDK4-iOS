@@ -1,8 +1,8 @@
 # Yaokan SDK4 iOS 说明文档
 
 
-  文件编号：YAOKANSDK4IOS-20200903
-  版本：v1.0.5
+  文件编号：YAOKANSDK4IOS
+  版本：v1.0.6
 
   深圳遥看科技有限公司
   （版权所有，切勿拷贝）
@@ -16,7 +16,7 @@
 | v1.0.3 | 支持美亚床椅 | yaokan | 20200813 |
 | v1.0.4 | 增加手机热点配网 | yaokan | 20200828 |
 | v1.0.5 | 增加参数配网 | yaokan | 20200903 |
-
+| v1.0.6 | 添加设置设备音量 | yaokan | 20210831 |
 
 ## 1. 概述
 YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与App对接的目的。
@@ -137,6 +137,13 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
     ```objc
     [YaokanSDK turnOnLEDWithYKCId:@"targetMacAddr"];
     [YaokanSDK turnOffLEDWithYKCId:@"targetMacAddr"];
+    ```
+
+1. 设备开灯、关灯
+
+    ```objc
+    //voice取值0-20, Mac为设备mac
+    [YaokanSDK setVoice:voice WithYKCId:mac];
     ```
 
 1. 硬件升级OTA

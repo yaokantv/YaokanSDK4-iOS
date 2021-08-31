@@ -69,7 +69,7 @@
         NSString *key = [dataCommon getPasswrodFromSSID:dataCommon.ssid];
 
         
-        [YaokanSDK bindYKCV2WithSSID:nil password:nil deviceType:_deviceType configType:_configType completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
+        [YaokanSDK bindYKCV2WithSSID:dataCommon.ssid password:key deviceType:_deviceType configType:_configType completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
             if (device && error == nil) {
                 [self onConfigSucceed:nil];
             }else{
