@@ -84,7 +84,7 @@
         [YaokanSDK removeRemoteDeivceWithYKCId:[[YKCenterCommon sharedInstance] currentYKCId] remote:device completion:^(NSError * _Nonnull error) {
             
         }];
-        [device remove];
+//        [device remove];
 //        if ([device remove]) {
 //
 //            NSLog(@"删除成功");
