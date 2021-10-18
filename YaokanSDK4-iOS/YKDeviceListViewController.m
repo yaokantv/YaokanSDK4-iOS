@@ -67,8 +67,11 @@
                        destructiveButtonTitle:nil
                        otherButtonTitles:
                        NSLocalizedString(@"Add Device", nil),
-                       NSLocalizedString(@"Export Device List", nil)
-                       , nil];
+                       NSLocalizedString(@"Export Device List", nil),
+                       NSLocalizedString(@"import Device List", nil),
+                       NSLocalizedString(@"导入遥控器列表", nil),
+                       NSLocalizedString(@"导出遥控器列表", nil),
+                        nil];
     
     actionSheet.actionSheetStyle = UIBarStyleBlackTranslucent;
     [actionSheet showInView:self.view];
@@ -107,7 +110,26 @@
             NSLog(@"OK");
         }];
         [alert addAction:ok];
+        NSLog(@"%@",json);
         [self presentViewController:alert animated:YES completion:nil];
+    }
+    else if (buttonIndex == offset+2) {
+//        NSString *json =  [YaokanSDK exportYKDevice];
+//        NSLog(@"%@",json);
+//        json = @"[{\"did\":\"8FAF4A06AC965CCE\",\"mac\":\"84F3EB1A0793\",\"type\":\"YKK-1013-RF\",\"rf\":\"1\"}]";
+        NSString *json = @"[{\"did\":\"EE901971B8744FAC\",\"mac\":\"DC4F22529F13\",\"name\":\"YKK-1011\",\"rf\":\"0\"},{\"did\":\"6D65F33EBF1862C6\",\"mac\":\"84F3EB1A0793\",\"name\":\"YKK-1013-RF\",\"rf\":\"0\"}]";
+        [YaokanSDK importYKDevce:json];
+
+    }else if (buttonIndex == offset+3) {//导入遥控器
+        NSString * remoteJson = @"[{\"name\":\"艾美特 Airmate风扇 FSW62R\",\"rid\":\"20150908160034\",\"rmodel\":\"FSW62R\",\"be_rmodel\":\"FSW62R\",\"be_rc_type\":6,\"bid\":1445,\"mac\":\"DC4F22529F13\",\"rf\":\"0\",\"rf_body\":\"\",\"rc_command_type\":1,\"study_id\":\"0\",\"rc_command\":{\"mode\":{\"name\":\"模式\",\"value\":\"mode\",\"stand_key\":1,\"order_no\":1},\"timer\":{\"name\":\"定时\",\"value\":\"timer\",\"stand_key\":1,\"order_no\":1},\"fanspeed\":{\"name\":\"风速\",\"value\":\"fanspeed\",\"stand_key\":1,\"order_no\":1},\"oscillation\":{\"name\":\"摇头\",\"value\":\"oscillation\",\"stand_key\":1,\"order_no\":1},\"power\":{\"name\":\"电源\",\"value\":\"power\",\"stand_key\":1,\"order_no\":1},\"fanspeed-\":{\"name\":\"风速-\",\"value\":\"fanspeed-\",\"stand_key\":0,\"order_no\":1},\"timer-\":{\"name\":\"定时-\",\"value\":\"timer-\",\"stand_key\":0,\"order_no\":1},\"timer+\":{\"name\":\"定时+\",\"value\":\"timer+\",\"stand_key\":0,\"order_no\":1},\"fanspeed+\":{\"name\":\"风速+\",\"value\":\"fanspeed+\",\"stand_key\":0,\"order_no\":1}}},{\"name\":\"艾科瑞 Aikerui电视盒子 a_1\",\"rid\":\"2019070409142462\",\"rmodel\":\"a_1\",\"be_rmodel\":\"a_1\",\"be_rc_type\":10,\"bid\":3189,\"mac\":\"84F3EB1A0793\",\"rf\":\"0\",\"rf_body\":\"\",\"rc_command_type\":1,\"study_id\":\"0\",\"rc_command\":{\"left\":{\"name\":\"左\",\"value\":\"left\",\"stand_key\":1,\"order_no\":1},\"power\":{\"name\":\"电源\",\"value\":\"power\",\"stand_key\":1,\"order_no\":1},\"up\":{\"name\":\"上\",\"value\":\"up\",\"stand_key\":1,\"order_no\":1},\"right\":{\"name\":\"右\",\"value\":\"right\",\"stand_key\":1,\"order_no\":1},\"boot\":{\"name\":\"主页\",\"value\":\"boot\",\"stand_key\":1,\"order_no\":1},\"menu\":{\"name\":\"菜单\",\"value\":\"menu\",\"stand_key\":1,\"order_no\":1},\"ok\":{\"name\":\"OK\",\"value\":\"ok\",\"stand_key\":1,\"order_no\":1},\"down\":{\"name\":\"下\",\"value\":\"down\",\"stand_key\":1,\"order_no\":1},\"vol-\":{\"name\":\"音量-\",\"value\":\"vol-\",\"stand_key\":1,\"order_no\":1},\"vol+\":{\"name\":\"音量+\",\"value\":\"vol+\",\"stand_key\":1,\"order_no\":1}}}]";
+
+
+        BOOL result =  [YKRemoteDevice importRemotes:remoteJson];
+        NSLog(@"1%d",result);
+
+    }else if (buttonIndex == offset+4) {
+        NSString *remotes =  [YKRemoteDevice exportRemotes];
+        NSLog(@"1-%@",remotes);
     }
 }
 

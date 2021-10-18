@@ -263,6 +263,9 @@
     }else if (buttonIndex == offset+6) {
         [YaokanSDK setVoice:8 WithYKCId:[[YKCenterCommon sharedInstance] currentYKCId]];
     }
+    
+//    importRemotes
+    
 }
 
 

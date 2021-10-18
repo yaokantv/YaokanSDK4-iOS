@@ -35,6 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable YKRemoteDevice *)saveRemoteDeviceWithDictionary:(NSDictionary *)dict;
 
 
+
+/**
+  导出所有遥控器,
+ @return JSON数组
+ */
++ (NSString *)exportRemotes;
 + (NSString *)exportRemotesWithYkcId:(NSString *)ykcId;
 
 
@@ -42,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param jsonStr 单个或多个 遥控器json字符串
 /// @param ykcId 硬件的mac地址
 + (BOOL)importRemotes:(NSString *)jsonStr toYkcId:(NSString *)ykcId;
-
++ (BOOL)importRemotes:(NSString *)jsonStr;
 /**
  导出遥控器为json格式
 
@@ -51,6 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDictionary *)toJsonObject;
 
 - (BOOL)isRF;
+-(int)getCodeTypeWithRemote;
 
 @end
 

@@ -105,6 +105,12 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
     ```objc
     [YaokanSDK importYKDevce:@"[{\"did\":\"A64D184C35EAB091\",\"rf\":\"1\",\"mac\":\"BCDDC289CCE2\",\"type\":\"YKK_1011-RF\",\"version\":\"1.1.6\"},{\"did\":\"23C81FD441D21AB8\",\"rf\":\"0\",\"mac\":\"DC4F22529F13\",\"type\":\"YKK_1011\",\"version\":\"1.1.6\"}]"];   
     ```
+1. 导出设备列表
+
+    ```objc
+    //返回json字符串
+    [YaokanSDK exportYKDevice];
+    ```
 1. 设备测试
 
     ```objc
@@ -403,14 +409,15 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
 1. 导入遥控器( dict为 NSDictionary类型 ,json 必须通过 上面的导出方法的数据或是 获取遥控器详情 的API拿到)
 
     ```objc
-        YKRemoteDevice 类方法
-    + (nullable YKRemoteDevice *)saveRemoteDeviceWithDictionary:(NSDictionary *)dict;
+     NSString * remoteJson = @"[{\"name\":\"艾美特 Airmate风扇 FSW62R\",\"rid\":\"20150908160034\",\"rmodel\":\"FSW62R\",\"be_rmodel\":\"FSW62R\",\"be_rc_type\":6,\"bid\":1445,\"mac\":\"DC4F22529F13\",\"rf\":\"0\",\"rf_body\":\"\",\"rc_command_type\":1,\"study_id\":\"0\",\"rc_command\":{\"mode\":{\"name\":\"模式\",\"value\":\"mode\",\"stand_key\":1,\"order_no\":1},\"timer\":{\"name\":\"定时\",\"value\":\"timer\",\"stand_key\":1,\"order_no\":1},\"fanspeed\":{\"name\":\"风速\",\"value\":\"fanspeed\",\"stand_key\":1,\"order_no\":1},\"oscillation\":{\"name\":\"摇头\",\"value\":\"oscillation\",\"stand_key\":1,\"order_no\":1},\"power\":{\"name\":\"电源\",\"value\":\"power\",\"stand_key\":1,\"order_no\":1},\"fanspeed-\":{\"name\":\"风速-\",\"value\":\"fanspeed-\",\"stand_key\":0,\"order_no\":1},\"timer-\":{\"name\":\"定时-\",\"value\":\"timer-\",\"stand_key\":0,\"order_no\":1},\"timer+\":{\"name\":\"定时+\",\"value\":\"timer+\",\"stand_key\":0,\"order_no\":1},\"fanspeed+\":{\"name\":\"风速+\",\"value\":\"fanspeed+\",\"stand_key\":0,\"order_no\":1}}}]";
+    [YKRemoteDevice importRemotes:remoteJson];
     ```
 
-1. 导入遥控器列表
+1. 导出遥控器列表
 
     ```objc
-    [YKRemoteDevice exportRemotesWithYkcId:[[YKCenterCommon sharedInstance] currentYKCId]];
+    //返回JSON数组字符串
+    [YKRemoteDevice exportRemotes];
     ```
 
 1. 电量统计

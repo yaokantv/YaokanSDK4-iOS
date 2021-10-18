@@ -11,6 +11,8 @@
 #import "YKCenterCommon.h"
 #import <YaokanSDK/YaokanSDK.h>
 
+#import <NetworkExtension/NEHotspotConfigurationManager.h>
+
 #define CONFIG_TIMEOUT      60
 
 @interface YKConfigWaitingController () <UIAlertViewDelegate>
@@ -68,8 +70,9 @@
     if (YKGetCurrentSSID().length >= 0) {
         NSString *key = [dataCommon getPasswrodFromSSID:dataCommon.ssid];
 
-        
         [YaokanSDK bindYKCV2WithSSID:dataCommon.ssid password:key deviceType:_deviceType configType:_configType completion:^(NSError * _Nullable error, YKDevice * _Nullable device) {
+            NSLog(@"33-%@", error.userInfo.description);
+
             if (device && error == nil) {
                 [self onConfigSucceed:nil];
             }else{

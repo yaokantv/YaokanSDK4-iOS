@@ -86,6 +86,8 @@
 "set failed" = "设置失败";
 
 "Export Device List" = "导出设备列表";
+"import Device List" = "导入设备列表";
+
 "Export List Result" = "导出结果";
 
 "Add RC" = "添加遥控";

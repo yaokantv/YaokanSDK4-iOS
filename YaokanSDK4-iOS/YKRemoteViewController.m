@@ -181,6 +181,12 @@
 
 - (void)exportAction{
     NSDictionary *rcDict = [self.remote toJsonObject];
+//    NSLog(@"exportAction-%@",rcDict.description);
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:rcDict options:0 error:nil];
+    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"exportAction-%@",jsonStr);
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"导出结果" message:rcDict.description preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:ok];
