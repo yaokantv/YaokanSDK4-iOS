@@ -244,6 +244,7 @@ UITextFieldDelegate, UIAlertViewDelegate, CLLocationManagerDelegate>
     
     if (0 == self.passwordCell.textPassword.text.length) {
         // password is empty
+        [self onPushToNextPage];
     } else {
         [self onPushToNextPage];
     }

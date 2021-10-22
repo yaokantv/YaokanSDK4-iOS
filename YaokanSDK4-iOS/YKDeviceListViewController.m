@@ -130,6 +130,13 @@
     }else if (buttonIndex == offset+4) {
         NSString *remotes =  [YKRemoteDevice exportRemotes];
         NSLog(@"1-%@",remotes);
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Export List Result", nil) message:remotes preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            NSLog(@"OK");
+        }];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 
