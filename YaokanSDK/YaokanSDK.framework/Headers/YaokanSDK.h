@@ -425,6 +425,12 @@ FOUNDATION_EXPORT const unsigned char YaokanSDKVersionString[];
                              remote:(YKRemoteDevice *)remote
                          completion:(void (^__nullable)(NSError *error))completion;
 
+/**
+ 清除设备遥控器(仅删除APP本地)
+ 
+ @param ykcId 硬件mac地址
+ */
++ (void)clearRemoteDeivceList:(NSString *)ykcId;
 
 /**
  变更遥控器名字
