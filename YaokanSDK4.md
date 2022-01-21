@@ -37,13 +37,14 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
 需要先向商务申请 `APP_ID`
 
 ### 3.1 集成
+  打开终端,执行pod install,打开YaokanSDK4-iOS.xcworkspace即可
 
-  1. 打开 `[your_project].xcodeproj`, 选择 Target `[your_target_name]` 打开 General 标签项。
+  ~~1. 打开 `[your_project].xcodeproj`, 选择 Target `[your_target_name]` 打开 General 标签项。~~
 
-  2. 在 `Embedded Binaries` 中点击 `+` 号，点击 `Add Other..` 打开 `YaokanSDK` 目录选择 `YaokanSDK.framework` 和 `CocoaAsyncSocket.framework` `MQTTClient.framework` `SocketRocket.framework` 。
-    直接将这4个文件拖进 `Embedded Binaries` 一样可以。
+  ~~2. 在 `Embedded Binaries` 中点击 `+` 号，点击 `Add Other..` 打开 `YaokanSDK` 目录选择 `YaokanSDK.framework` 和 `CocoaAsyncSocket.framework` `MQTTClient.framework` `SocketRocket.framework` 。
+    直接将这4个文件拖进 `Embedded Binaries` 一样可以。~~
 
-  3. 本SDK 最低支持版本为 iOS 11.0
+  本SDK 最低支持版本为 iOS 11.0 
 ## 4. API 列表
 
 ### 4.1 初始化接口
