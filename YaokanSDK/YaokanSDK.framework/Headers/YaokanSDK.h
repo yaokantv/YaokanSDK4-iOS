@@ -456,6 +456,16 @@ FOUNDATION_EXPORT const unsigned char YaokanSDKVersionString[];
 + (void)setVoice:(NSUInteger)voice
        WithYKCId:(NSString *)ykcId;
 
+/**
+  启用麦克风
+ @param ykcId 硬件mac地址
+ */
++ (void)enableMicWithYKCId:(NSString *)ykcId;
+/**
+  禁用麦克风
+ @param ykcId 硬件mac地址
+ */
++ (void)disableMicWithYKCId:(NSString *)ykcId;
 
 /**
 打开硬件LED灯开关

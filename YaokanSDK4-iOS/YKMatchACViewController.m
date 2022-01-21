@@ -94,6 +94,8 @@
     [YaokanSDK requestACDetailWithYKCId:[[YKCenterCommon sharedInstance] currentYKCId] remoteDeviceTypeId:matchDevice.typeId remoteDeviceId:matchDevice.rid completion:^(YKRemoteMatchDevice * _Nonnull remote, NSError * _Nonnull error) {
         [MBProgressHUD hideHUDForView:weakSelf.view animated:NO];
         _matchDevice = remote;
+        NSLog(@"%@",remote.rc_command) ;
+
         _rc_command = remote.rc_command;
         
         _currentModel = ACModelCool;
@@ -211,7 +213,7 @@
 }
 
 - (void)remoteControl {
-    NSLog(@"%@",_matchDevice.rc_command);
+//    NSLog(@"%@",_matchDevice.rc_command);
     [YaokanSDK sendMatchACWithYKCId:[[YKCenterCommon sharedInstance] currentYKCId] remoteDevice:_matchDevice withMode:self.currentModel temp:self.temperature speed:self.currentSpeed windU:self.currentWindU windL:self.currentWindL completion:^(BOOL result, NSError * _Nonnull error) {
         
     }];
@@ -288,6 +290,7 @@
     }
     YKRemoteMatchDevice *matchDevice = matchList[curIdx];
     [self requestACDetail:matchDevice];
+    NSLog(@"%@",matchDevice.rc_command) ;
     _lb.text = [NSString stringWithFormat:@"%ld/%ld",curIdx+1,matchList.count];
 }
 
@@ -297,6 +300,8 @@
     }
     YKRemoteMatchDevice *matchDevice = matchList[curIdx];
     [self requestACDetail:matchDevice];
+    NSLog(@"%@",matchDevice.rc_command) ;
+
     _lb.text = [NSString stringWithFormat:@"%ld/%ld",curIdx+1,matchList.count];
 }
 

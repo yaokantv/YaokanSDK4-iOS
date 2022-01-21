@@ -143,7 +143,7 @@
             
             NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
             YKRemoteDevice *remote = self.remotes[indexPath.row];
-//            NSLog(@"%@",[remote toJsonObject]); //导出Json
+            NSLog(@"%@",[remote toJsonObject]); //导出Json
             if ([segue.destinationViewController isKindOfClass:[YKRemoteViewController class]]) {
                 YKRemoteViewController *vc = segue.destinationViewController;
                 vc.remote = remote;
@@ -191,6 +191,7 @@
                    NSLocalizedString(@"Power Query", nil),
                    NSLocalizedString(@"set voice", nil),
                    NSLocalizedString(@"清除APP遥控器列表", nil),
+                   NSLocalizedString(@"禁用麦克风", nil),
                    nil];
     
     actionSheet.actionSheetStyle = UIBarStyleBlackTranslucent;
@@ -265,6 +266,8 @@
         [YaokanSDK setVoice:8 WithYKCId:[[YKCenterCommon sharedInstance] currentYKCId]];
     }else if (buttonIndex == offset+7) {
         [YaokanSDK clearRemoteDeivceList:[[YKCenterCommon sharedInstance] currentYKCId]];
+    }else if (buttonIndex == offset+8) {
+        [YaokanSDK enableMicWithYKCId:[[YKCenterCommon sharedInstance] currentYKCId]];
     }
     
 //    importRemotes
