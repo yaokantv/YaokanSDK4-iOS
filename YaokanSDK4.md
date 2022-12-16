@@ -2,7 +2,7 @@
 
 
   文件编号：YAOKANSDK4IOS
-  版本：v1.0.7
+  版本：v1.0.8
 
   深圳遥看科技有限公司
   （版权所有，切勿拷贝）
@@ -18,6 +18,7 @@
 | v1.0.5 | 增加参数配网 | yaokan | 20200903 |
 | v1.0.6 | 添加设置设备音量 | yaokan | 20210831 |
 | v1.0.7 | 支持控制设备麦克风启用/禁用 | alex | 20220121 |
+| v1.0.8 | 更新SDK,修复iOS SmartConfig 配网失败问题 | alex | 20221216 |
 
 ## 1. 概述
 YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与App对接的目的。
@@ -38,6 +39,16 @@ YaokanSDK4 提供设备配网，设备管理，遥控器管理功能，实现与
 
 ### 3.1 集成
   打开终端,执行pod install,打开YaokanSDK4-iOS.xcworkspace即可
+
+  需要在info里添加
+```objc
+<key>NSLocalNetworkUsageDescription</key>
+<string>APP将使用到你的本地网络来进行设备配网</string>
+<key>NSBonjourServices</key>
+<array>
+    <string>_yklink._tcp.</string>
+</array>
+```
 
   ~~1. 打开 `[your_project].xcodeproj`, 选择 Target `[your_target_name]` 打开 General 标签项。~~
 
